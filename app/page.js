@@ -1,11 +1,10 @@
 'use client';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 export default function Home() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
-  const previousResponseId = useRef(null);
 
   async function sendMessage() {
     if (!input.trim()) return;
@@ -19,13 +18,11 @@ export default function Home() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         message: userMessage,
-        previousResponseId: previousResponseId.current,
+        messages: messages,
       }),
     });
 
     const data = await res.json();
-    previousResponseId.current = data.responseId;
-
     setMessages(prev => [...prev, { role: 'assistant', content: data.reply }]);
     setLoading(false);
   }
