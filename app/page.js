@@ -1,5 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export default function Home() {
   const [messages, setMessages] = useState([]);
@@ -69,7 +70,11 @@ export default function Home() {
               lineHeight: 1.6,
               boxShadow: '0 1px 2px rgba(0,0,0,0.08)',
             }}>
-              {m.content}
+              {m.role === 'assistant' ? (
+                <ReactMarkdown>{m.content}</ReactMarkdown>
+              ) : (
+                m.content
+              )}
             </div>
           </div>
         ))}
