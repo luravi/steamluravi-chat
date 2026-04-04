@@ -47,13 +47,15 @@ export default function Home() {
       </div>
 
       <div style={{ flex: 1, overflowY: 'auto', padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
-        {messages.length === 0 && (
-          <div style={{ textAlign: 'center', color: '#888', marginTop: 60 }}>
-            <div style={{ fontSize: 48, marginBottom: 12 }}>🚀</div>
-            <div style={{ fontSize: 16, fontWeight: 500 }}>¡Hola! Soy STEAMLURAVI</div>
-            <div style={{ fontSize: 14, marginTop: 6 }}>Pregúntame cualquier cosa sobre ciencia, tecnología, ingeniería, arte o matemáticas.</div>
+
+        <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+          <div style={{ width: 32, height: 32, borderRadius: '50%', background: '#5DCAA5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 500, fontSize: 13, flexShrink: 0 }}>S</div>
+          <div style={{ background: 'white', padding: '10px 16px', borderRadius: '4px 18px 18px 18px', maxWidth: '70%', fontSize: 14, lineHeight: 1.6, boxShadow: '0 1px 2px rgba(0,0,0,0.08)' }}>
+            👋 ¡Hola! Soy <strong>STEAMLURAVI</strong>, tu profesor virtual de ciencia, tecnología, ingeniería, arte y matemáticas.
+            <br /><br />
+            Para darte la mejor respuesta posible, dime primero: <strong>¿en qué curso estás?</strong> (1º ESO, 2º Bachillerato, etc.)
           </div>
-        )}
+        </div>
 
         {messages.map((m, i) => (
           <div key={i} style={{ display: 'flex', justifyContent: m.role === 'user' ? 'flex-end' : 'flex-start', gap: 10, alignItems: 'flex-start' }}>
